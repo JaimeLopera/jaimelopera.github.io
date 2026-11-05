@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — Jaime Lopera</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-badge">JL</span> Jaime Lopera
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Inicio</a>
+                <a href="experiencia.html">Experiencia</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="sobre-mi.html">Sobre mí</a>
+                <a href="contacto.html" class="active btn-primary-sm">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="page-header">
+            <h1>Hablemos 📬</h1>
+            <p>Para unas prácticas, una duda sobre algún proyecto o simplemente para saludar.</p>
+        </section>
+
+        <section class="section-container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Cómo contactarme</h2>
+                    <p>El correo y LinkedIn son lo que más miro. Suelo contestar en uno o dos días.</p>
+
+                    <div class="contact-card-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <p>Granada, España</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-item">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <strong>Correo</strong>
+                            <p>loperavelazquezjaime@gmail.com</p>
+                            <div class="correo-acciones">
+                                <a href="https://mail.google.com/mail/?view=cm&to=loperavelazquezjaime@gmail.com" target="_blank" class="btn-secondary-sm">Abrir en Gmail ↗</a>
+                                <button type="button" id="copiarCorreo" class="btn-secondary-sm btn-copiar">Copiar correo</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-item">
+                        <span class="icon">💼</span>
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <p><a href="https://www.linkedin.com/in/jaime-lopera-vel%C3%A1zquez/" target="_blank">Jaime Lopera Velázquez</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-item">
+                        <span class="icon">💻</span>
+                        <div>
+                            <strong>GitHub</strong>
+                            <p><a href="https://github.com/JaimeLopera" target="_blank">JaimeLopera</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Envíame un mensaje</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Tu correo *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" placeholder="Prácticas, proyecto, saludo...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntame..."></textarea>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="privacidad" name="privacidad" required>
+                            <label for="privacidad">He leído y acepto la <a href="privacidad.html">política de privacidad</a> *</label>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-full">Enviar mensaje</button>
+                    </form>
+
+                    <div id="formSuccess" class="form-success-msg">
+                        ✅ ¡Gracias! He recibido tu mensaje y te responderé pronto.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Jaime Lopera Velázquez</h3>
+                <p>Desarrollo web | Granada</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/jaime-lopera-vel%C3%A1zquez/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/JaimeLopera" target="_blank">GitHub</a>
+                <a href="https://mail.google.com/mail/?view=cm&to=loperavelazquezjaime@gmail.com" target="_blank">Email</a>
+                <a href="privacidad.html">Privacidad</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaime Lopera Velázquez</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

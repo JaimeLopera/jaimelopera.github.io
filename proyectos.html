@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos — Jaime Lopera</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-badge">JL</span> Jaime Lopera
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Inicio</a>
+                <a href="experiencia.html">Experiencia</a>
+                <a href="proyectos.html" class="active">Proyectos</a>
+                <a href="sobre-mi.html">Sobre mí</a>
+                <a href="contacto.html" class="btn-primary-sm">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="page-header">
+            <h1>Mis proyectos</h1>
+            <p>Trabajos de clase y proyectos propios. Algunos están sin acabar, pero en todos aprendí algo.</p>
+        </section>
+
+        <section class="section-container">
+            <div class="filter-buttons" id="filterContainer">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web y diseño</button>
+                <button class="filter-btn" data-filter="sistemas">Sistemas</button>
+            </div>
+
+            <div class="grid-3" id="projectsGrid">
+                <div class="project-card" data-category="web">
+                    <div class="project-img-placeholder">🎤 Microsite Bad Bunny</div>
+                    <div class="project-body">
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                        <h3>Portfolio de un artista</h3>
+                        <p>Práctica de Diseño de Interfaces Web. Primero hice el mockup en Figma y luego lo pasé a código, intentando que se viera igual que el diseño.</p>
+                        <a href="https://github.com/JaimeLopera" target="_blank" class="btn-secondary-sm">Ver en GitHub ↗</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="sistemas">
+                    <div class="project-img-placeholder">🌐 Servidor DNS</div>
+                    <div class="project-body">
+                        <div class="tags">
+                            <span class="tag">Bind9</span>
+                            <span class="tag">Vagrant</span>
+                            <span class="tag">Linux</span>
+                        </div>
+                        <h3>Servidor DNS paso a paso</h3>
+                        <p>Configuré un servidor DNS con Bind9 sobre máquinas virtuales de Vagrant y lo comprobé con un script de pruebas. Está documentado paso a paso.</p>
+                        <a href="https://github.com/JaimeLopera" target="_blank" class="btn-secondary-sm">Ver en GitHub ↗</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-img-placeholder">🧑‍💻 Esta web</div>
+                    <div class="project-body">
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>Mi portfolio</h3>
+                        <p>La web que estás viendo: sin frameworks, con diseño adaptable al móvil, menú responsive y filtro de proyectos hecho con JavaScript.</p>
+                        <a href="https://github.com/JaimeLopera" target="_blank" class="btn-secondary-sm">Ver en GitHub ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Jaime Lopera Velázquez</h3>
+                <p>Desarrollo web | Granada</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/jaime-lopera-vel%C3%A1zquez/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/JaimeLopera" target="_blank">GitHub</a>
+                <a href="https://mail.google.com/mail/?view=cm&to=loperavelazquezjaime@gmail.com" target="_blank">Email</a>
+                <a href="privacidad.html">Privacidad</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaime Lopera Velázquez</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
