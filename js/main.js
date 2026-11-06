@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            menuToggle.classList.toggle("open");
+            const abierto = navLinks.classList.toggle("active");
+            menuToggle.classList.toggle("open", abierto);
+            menuToggle.setAttribute("aria-expanded", abierto);
         });
     }
 
@@ -27,12 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 projectCards.forEach(card => {
                     const categories = card.getAttribute("data-category").split(" ");
-
-                    if (filterValue === "all" || categories.includes(filterValue)) {
-                        card.style.display = "block";
-                    } else {
-                        card.style.display = "none";
-                    }
+                    card.hidden = !(filterValue === "all" || categories.includes(filterValue));
                 });
             });
         });
@@ -41,37 +37,38 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Formulario de contacto (contacto.html): se envía con Formspree
     const contactForm = document.getElementById("contactForm");
     const formSuccess = document.getElementById("formSuccess");
+    const formError = document.getElementById("formError");
 
-    if (contactForm) {
-        contactForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
+if (contactForm) {
+    const submitBtn = contactForm.querySelector("button[type='submit']");
+    const textoOriginal = submitBtn.textContent;
 
-            const submitBtn = contactForm.querySelector("button[type='submit']");
-            submitBtn.innerText = "Enviando...";
-            submitBtn.disabled = true;
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        submitBtn.textContent = "Enviando...";
+        submitBtn.disabled = true;
+        formError.hidden = true;
 
-            try {
-                const respuesta = await fetch("https://formspree.io/f/xgaaddbl", {
-                    method: "POST",
-                    headers: { "Accept": "application/json" },
-                    body: new FormData(contactForm)
-                });
+        try {
+            const respuesta = await fetch("https://formspree.io/f/xgaaddbl", {
+                method: "POST",
+                headers: { "Accept": "application/json" },
+                body: new FormData(contactForm)
+            });
 
-                if (respuesta.ok) {
-                    contactForm.style.display = "none";
-                    if (formSuccess) {
-                        formSuccess.style.display = "block";
-                    }
-                } else {
-                    throw new Error("Error en el envío");
-                }
-            } catch (error) {
-                submitBtn.innerText = "Enviar mensaje 🚀";
-                submitBtn.disabled = false;
-                alert("No se ha podido enviar. Escríbeme directamente a loperavelazquezjaime@gmail.com");
+            if (!respuesta.ok) {
+                throw new Error("Error en el envío");
             }
-        });
-    }
+
+            contactForm.style.display = "none";
+            formSuccess.style.display = "block";
+        } catch (error) {
+            formError.hidden = false;
+            submitBtn.textContent = textoOriginal;
+            submitBtn.disabled = false;
+        }
+    });
+}
 
     // 4. Botón para copiar el correo
     const btnCopiar = document.getElementById("copiarCorreo");
@@ -158,4 +155,84 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         elementosReveal.forEach(el => el.classList.add("visible"));
     }
+
+    // 6. Indicador deslizante del menú (solo escritorio)
+    const enlacesMenu = navLinks ? navLinks.querySelectorAll("a:not(.btn-primary-sm)") : [];
+
+    if (enlacesMenu.length > 0) {
+        const indicador = document.createElement("span");
+        indicador.className = "nav-indicador";
+        navLinks.appendChild(indicador);
+
+        const activo = navLinks.querySelector("a.active:not(.btn-primary-sm)");
+
+        const moverA = (enlace) => {
+            if (!enlace) {
+                indicador.style.opacity = "0";
+                return;
+            }
+
+            indicador.style.top = (enlace.offsetTop + enlace.offsetHeight + 2) + "px";
+            indicador.style.width = enlace.offsetWidth + "px";
+            indicador.style.transform = "translateX(" + enlace.offsetLeft + "px)";
+            indicador.style.opacity = "1";
+        };
+
+        indicador.style.transition = "none";
+        moverA(activo);
+        indicador.offsetWidth;
+        indicador.style.transition = "";
+
+        enlacesMenu.forEach(enlace => {
+            enlace.addEventListener("mouseenter", () => moverA(enlace));
+            enlace.addEventListener("focus", () => moverA(enlace));
+        });
+
+        navLinks.addEventListener("mouseleave", () => moverA(activo));
+        window.addEventListener("resize", () => moverA(activo));
+        window.addEventListener("load", () => moverA(activo));
+    }
+
+    // 7. Fundido suave al cambiar de página
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.addEventListener("click", (e) => {
+            const enlace = e.target.closest("a");
+
+            if (!enlace || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+                return;
+            }
+
+            if (enlace.target === "_blank" || enlace.hasAttribute("download")) {
+                return;
+            }
+
+            const destino = new URL(enlace.href, window.location.href);
+
+            if (destino.protocol !== window.location.protocol || destino.origin !== window.location.origin || destino.pathname === window.location.pathname) {
+                return;
+            }
+
+            e.preventDefault();
+            document.body.classList.add("saliendo");
+
+            setTimeout(() => {
+                window.location.href = destino.href;
+            }, 200);
+        });
+
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) {
+                document.body.classList.remove("saliendo");
+            }
+        });
+    }
+
+    // 8. Foco de luz que sigue al ratón en las tarjetas
+    document.querySelectorAll(".project-card, .feature-card").forEach(tarjeta => {
+        tarjeta.addEventListener("pointermove", (e) => {
+            const caja = tarjeta.getBoundingClientRect();
+            tarjeta.style.setProperty("--mx", (e.clientX - caja.left) + "px");
+            tarjeta.style.setProperty("--my", (e.clientY - caja.top) + "px");
+        });
+    });
 });
