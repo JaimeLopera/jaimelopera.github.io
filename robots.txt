@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jaimelopera.github.io/sitemap.xml
