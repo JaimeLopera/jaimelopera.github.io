@@ -2530,3 +2530,55 @@ html.caso-vt::view-transition-new(root) {
 .palabras-medias li:nth-child(even) {
     color: var(--text-muted);
 }
+
+/* Sobre mí: versión limpia, sin foto y con tarjetas ligeras */
+.sobre-hero {
+    padding: clamp(5rem, 12vw, 9rem) 0 1rem;
+}
+
+.sobre-hero-contenedor {
+    display: block;
+    text-align: center;
+}
+
+.sobre-hero h1 {
+    font-size: clamp(3.2rem, 9vw, 7rem);
+}
+
+.sobre-hero-lead {
+    margin: 0 auto;
+}
+
+.sobre-chips {
+    justify-content: center;
+}
+
+.sobre-chip {
+    background: transparent;
+}
+
+.tesela {
+    background: color-mix(in srgb, var(--card-bg) 70%, transparent);
+    box-shadow: none;
+}
+
+.tesela .tesela-num {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: 1.25rem;
+}
+
+.tesela-ancha h3 {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.tesela-ancha .palabras-grandes li {
+    background: none;
+    color: var(--heading);
+}
+
+.tesela-ancha .palabras-grandes li:nth-child(even) {
+    color: var(--text-muted);
+}
