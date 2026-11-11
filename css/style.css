@@ -382,8 +382,10 @@ h2, h3 {
     transition: transform 0.16s var(--ease-out), color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-.theme-toggle:hover {
-    color: var(--primary-text);
+@media (hover: hover) and (pointer: fine) {
+    .theme-toggle:hover {
+        color: var(--primary-text);
+    }
 }
 
 /* Contenedor principal del botón */
@@ -650,9 +652,11 @@ h2, h3 {
     display: inline-block;
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-    box-shadow: var(--shadow-lg);
+@media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+        background-color: var(--primary-hover);
+        box-shadow: var(--shadow-lg);
+    }
 }
 
 .btn-primary-sm {
@@ -663,8 +667,10 @@ h2, h3 {
     font-weight: 600;
 }
 
-.btn-primary-sm:hover {
-    background-color: var(--primary-hover);
+@media (hover: hover) and (pointer: fine) {
+    .btn-primary-sm:hover {
+        background-color: var(--primary-hover);
+    }
 }
 
 .btn-secondary {
@@ -677,24 +683,28 @@ h2, h3 {
     display: inline-block;
 }
 
-.btn-secondary:hover {
-    background-color: var(--primary-light-hover);
-    box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+    .btn-secondary:hover {
+        background-color: var(--primary-light-hover);
+        box-shadow: var(--shadow-md);
+    }
 }
 
 .btn-secondary-sm {
     display: inline-block;
     padding: 0.5rem 1rem;
     background-color: var(--primary-light);
-    color: var(--primary) !important;
+    color: var(--primary-text) !important;
     border-radius: 980px;
     font-weight: 600;
     font-size: 0.85rem;
 }
 
-.btn-secondary-sm:hover {
-    background-color: var(--primary-light-hover);
-    box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+    .btn-secondary-sm:hover {
+        background-color: var(--primary-light-hover);
+        box-shadow: var(--shadow-md);
+    }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -749,9 +759,11 @@ h2, h3 {
     transition: var(--transition);
 }
 
-.feature-card:hover,
-.project-card:hover {
-    box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+    .feature-card:hover,
+    .project-card:hover {
+        box-shadow: var(--shadow-md);
+    }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -902,10 +914,12 @@ h2, h3 {
 }
 
 .filter-btn.active,
-.filter-btn:hover {
-    background-color: var(--primary);
-    color: white;
-    border-color: var(--primary);
+@media (hover: hover) and (pointer: fine) {
+    .filter-btn:hover {
+        background-color: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
 }
 
 .project-img img {
@@ -1933,8 +1947,10 @@ html.tema-vt::view-transition-new(root) {
     transition: transform 0.16s var(--ease-out), background-color 0.2s ease;
 }
 
-.caso-cerrar:hover {
-    background: rgba(15, 23, 42, 0.75);
+@media (hover: hover) and (pointer: fine) {
+    .caso-cerrar:hover {
+        background: rgba(15, 23, 42, 0.75);
+    }
 }
 
 .caso-cerrar:active {
@@ -2175,7 +2191,7 @@ html.caso-vt::view-transition-new(root) {
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 800;
     line-height: 0.98;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.04em;
     color: var(--heading);
     margin-bottom: 1.5rem;
     animation: fadeUp 0.6s var(--ease-out) 0.05s backwards;
@@ -2381,7 +2397,7 @@ html.caso-vt::view-transition-new(root) {
 .idioma-nivel {
     font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 800;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
     line-height: 1;
     color: var(--heading);
 }
@@ -2503,7 +2519,7 @@ html.caso-vt::view-transition-new(root) {
 }
 
 .sobre-hero h1 {
-    font-size: clamp(3.2rem, 9vw, 7rem);
+    font-size: clamp(3.2rem, 9vw, 6rem);
 }
 
 .sobre-hero-lead {
@@ -2610,7 +2626,7 @@ html.caso-vt::view-transition-new(root) {
     font-size: clamp(3.2rem, 6vw, 4.6rem);
     font-weight: 800;
     line-height: 1;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
     font-variant-numeric: tabular-nums;
     color: var(--primary-text);
 }
@@ -2917,10 +2933,10 @@ html.caso-vt::view-transition-new(root) {
 }
 
 .footer-cta-titulo {
-    font-size: clamp(3.2rem, 10vw, 7.5rem);
+    font-size: clamp(3.2rem, 10vw, 6rem);
     font-weight: 800;
     line-height: 1;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
     color: var(--heading);
     margin: 0 0 0.75rem;
 }
