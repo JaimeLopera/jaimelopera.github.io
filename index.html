@@ -18,8 +18,8 @@
     <title>Jaime Lopera | Desarrollo web</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='30' fill='%230f172a'/%3E%3Cg fill='none' stroke='%2360a5fa' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 44 14 64 32 84M96 44 114 64 96 84'/%3E%3C/g%3E%3Cg fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M56 42V72Q56 86 44 86M72 42V86H84'/%3E%3C/g%3E%3C/svg%3E">
     <link rel="preload" href="resources/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261111">
-    <script src="js/theme.js?v=20261111"></script>
+    <link rel="stylesheet" href="css/style.css?v=20261111b">
+    <script src="js/theme.js?v=20261111b"></script>
 </head>
 <body>
 
@@ -88,11 +88,11 @@
                     </div>
                     <div class="hero-content">
                         <span class="sub-heading">Hola, soy Jaime</span>
-                        <h1>Estudiante de DAW&nbsp;· Desarrollo web</h1>
+                        <h1><span class="h1-linea">Estudiante de DAW</span> <span class="h1-linea h1-degradado">Desarrollo web</span></h1>
                         <p>Estoy haciendo el ciclo de <strong>Desarrollo de Aplicaciones Web (DAW) bilingüe</strong> en Granada. Me gusta entender cómo funcionan las cosas y dejar el código ordenado. Ahora busco unas prácticas en un equipo real, donde pueda aportar y aprender de gente con más experiencia.</p>
 
                         <div class="hero-buttons">
-                            <a href="proyectos.html" class="btn-primary">Ver mis proyectos</a>
+                            <a href="proyectos.html" class="btn-primary magnetico">Ver mis proyectos</a>
                             <a href="resources/CV_Jaime_Lopera_Velazquez.pdf" class="btn-secondary" download>Descargar CV</a>
                         </div>
 
@@ -110,6 +110,72 @@
                                 <span class="stat-label">HTML, CSS, JS, PHP, Python, SQL</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container manifiesto">
+                <p class="texto-luz"><span class="texto-luz-relleno">Aprendo construyendo cosas que uso de verdad: un dashboard para mis finanzas y mi semana, unas notas de todo lo que estudio y webs que diseño antes en Figma. La IA la uso como una herramienta más, entendiendo lo que hace.</span></p>
+            </section>
+
+            <section class="historia" id="dashboard" aria-labelledby="historia-titulo">
+                <div class="section-container">
+                    <div class="section-title text-center">
+                        <span class="eyebrow">Proyecto propio</span>
+                        <h2 id="historia-titulo">Mi dashboard personal</h2>
+                        <p>Una web app privada que uso cada día para mis finanzas, mi plan de estudio y mi correo.</p>
+                    </div>
+
+                    <div class="historia-contenedor">
+                        <div class="historia-visual" aria-hidden="true">
+                            <div class="dispositivo">
+                                <div class="dispositivo-barra"><span></span><span></span><span></span></div>
+                                <div class="dispositivo-pantalla">
+                                    <img src="resources/dashboard-inicio.webp" alt="" class="captura activa" data-paso="0" loading="lazy" width="1600" height="960">
+                                    <img src="resources/dashboard-finanzas.webp" alt="" class="captura" data-paso="1" loading="lazy" width="1600" height="960">
+                                    <img src="resources/dashboard-plan.webp" alt="" class="captura" data-paso="2" loading="lazy" width="1600" height="960">
+                                    <img src="resources/dashboard-inicio-movil.webp" alt="" class="captura captura-movil" data-paso="3" loading="lazy" width="600" height="1298">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="historia-pasos">
+                            <article class="paso activo" data-paso="0">
+                                <img src="resources/dashboard-inicio.webp" alt="Pantalla de inicio del dashboard" class="paso-captura" loading="lazy" width="1600" height="960">
+                                <span class="paso-num">01</span>
+                                <h3>Mi día en una pantalla</h3>
+                                <p>El inicio junta el balance del mes, lo que me toca estudiar hoy, los próximos exámenes y un temporizador pomodoro.</p>
+                            </article>
+                            <article class="paso" data-paso="1">
+                                <img src="resources/dashboard-finanzas.webp" alt="Página de finanzas con gráficos" class="paso-captura" loading="lazy" width="1600" height="960">
+                                <span class="paso-num">02</span>
+                                <h3>Gastos escritos como hablo</h3>
+                                <p>Escribo «un eurillo en café» y una Edge Function se lo pasa a un modelo de Groq, que devuelve el movimiento con importe y categoría.</p>
+                            </article>
+                            <article class="paso" data-paso="2">
+                                <img src="resources/dashboard-plan.webp" alt="Plan semanal generado" class="paso-captura" loading="lazy" width="1600" height="960">
+                                <span class="paso-num">03</span>
+                                <h3>Un plan semanal que se adapta</h3>
+                                <p>A partir de mis exámenes y entregas, la IA reparte la semana en dos pasos. Lo que ya ha pasado nunca se reescribe: lo protege el propio JavaScript.</p>
+                            </article>
+                            <article class="paso" data-paso="3">
+                                <img src="resources/dashboard-inicio-movil.webp" alt="Dashboard en el móvil" class="paso-captura paso-captura-movil" loading="lazy" width="600" height="1298">
+                                <span class="paso-num">04</span>
+                                <h3>También en el móvil</h3>
+                                <p>Es responsive y además resume mi correo de las últimas 24 horas: importantes, por responder y el resto.</p>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="cifras">
+                        <div class="cifra"><span class="cifra-numero" data-contar="4">4</span><span class="cifra-texto">páginas</span></div>
+                        <div class="cifra"><span class="cifra-numero" data-contar="3">3</span><span class="cifra-texto">Edge Functions</span></div>
+                        <div class="cifra"><span class="cifra-numero" data-contar="4">4</span><span class="cifra-texto">tablas con RLS</span></div>
+                        <div class="cifra"><span class="cifra-numero">0</span><span class="cifra-texto">frameworks</span></div>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="proyectos.html#caso-dashboard" class="btn-secondary">Ver el caso completo</a>
                     </div>
                 </div>
             </section>
@@ -166,7 +232,7 @@
                 <div class="cta-container">
                     <h2>¿Buscas un Desarrollador Junior?</h2>
                     <p>Si tu empresa acepta alumnos en prácticas, me encantaría hablar contigo. Con un correo es suficiente para empezar.</p>
-                    <a href="contacto.html" class="btn-primary">Escríbeme</a>
+                    <a href="contacto.html" class="btn-primary magnetico">Escríbeme</a>
                 </div>
             </section>
 
@@ -189,7 +255,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20261111"></script>
-    <script src="js/idiomas.js?v=20261111"></script>
+    <script src="js/main.js?v=20261111b"></script>
+    <script src="js/idiomas.js?v=20261111b"></script>
 </body>
 </html>

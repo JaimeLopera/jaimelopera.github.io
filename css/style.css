@@ -1510,8 +1510,7 @@ html.tema-vt::view-transition-new(root) {
     to { transform: translateY(-16px); opacity: 0.35; }
 }
 
-@supports (animation-timeline: scroll()) {
-    @media (prefers-reduced-transparency: reduce) {
+@media (prefers-reduced-transparency: reduce) {
     .navbar {
         background-color: var(--bg);
         backdrop-filter: none;
@@ -1519,7 +1518,8 @@ html.tema-vt::view-transition-new(root) {
     }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
         .hero-avatar-wrapper {
             animation: foto-scroll linear both;
             animation-timeline: scroll(root block);
@@ -1589,5 +1589,550 @@ html.tema-vt::view-transition-new(root) {
     html.tema-transicion *::before,
     html.tema-transicion *::after {
         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+    }
+}
+
+/* ==========================================================================
+   ESTILO APPLE: titular, texto que se ilumina, historia fija, cifras,
+   tarjetas 3D, botones magnéticos, caso de estudio y timeline
+   ========================================================================== */
+
+/* --- Titular en dos líneas, la segunda en degradado --- */
+.h1-linea {
+    display: block;
+}
+
+.h1-degradado {
+    background: linear-gradient(90deg, var(--primary) 0%, #8b5cf6 55%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 0.08em;
+}
+
+/* --- Texto que se ilumina al hacer scroll ---
+   El span es inline: su fondo recorre las líneas en orden de lectura, así
+   que basta con crecer background-size para "pintar" el texto línea a línea.
+   main.js actualiza background-size; sin JS se ve entero. */
+.manifiesto {
+    padding-top: clamp(4rem, 12vw, 9rem);
+    padding-bottom: clamp(4rem, 12vw, 9rem);
+}
+
+.texto-luz {
+    max-width: 30ch;
+    margin: 0 auto;
+    font-size: clamp(1.9rem, 4.6vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    text-wrap: pretty;
+}
+
+.texto-luz-relleno {
+    color: color-mix(in srgb, var(--heading) 18%, transparent);
+    background-image: linear-gradient(var(--heading), var(--heading));
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.js-luz .texto-luz-relleno {
+    background-size: 0% 100%;
+}
+
+/* --- Historia fija (sticky storytelling) --- */
+.historia {
+    padding: 2rem 0 6rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.historia-contenedor {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+}
+
+.historia-visual {
+    position: sticky;
+    top: calc(50vh - min(19vw, 300px));
+}
+
+.dispositivo {
+    border-radius: 18px;
+    background: #0b1020;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px -20px rgba(15, 23, 42, 0.45), 0 0 0 1px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+    transform-origin: center top;
+    will-change: transform;
+}
+
+.dispositivo-barra {
+    display: flex;
+    gap: 6px;
+    padding: 10px 14px;
+    background: #111827;
+}
+
+.dispositivo-barra span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #374151;
+}
+
+.dispositivo-pantalla {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #0b1020;
+}
+
+.captura {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0;
+    transform: scale(1.03);
+    filter: blur(4px);
+    transition: opacity 0.5s var(--ease-out), transform 0.7s var(--ease-out), filter 0.5s var(--ease-out);
+}
+
+.captura.activa {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+.captura-movil {
+    object-fit: contain;
+    padding: 1.25rem 0;
+}
+
+.historia-pasos {
+    display: flex;
+    flex-direction: column;
+}
+
+.paso {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+}
+
+.paso.activo {
+    opacity: 1;
+}
+
+.paso-num {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.5rem;
+}
+
+.paso h3 {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    margin-bottom: 0.75rem;
+}
+
+.paso p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 42ch;
+}
+
+.paso-captura {
+    display: none;
+}
+
+@media (max-width: 868px) {
+    .historia-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .historia-visual {
+        display: none;
+    }
+
+    .paso {
+        min-height: 0;
+        opacity: 1;
+        margin-bottom: 3.5rem;
+    }
+
+    .paso-captura {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+        margin-bottom: 1.25rem;
+    }
+
+    .paso-captura-movil {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --- Cifras --- */
+.cifras {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 4rem 0 2.5rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0;
+}
+
+.cifra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cifra-numero {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+}
+
+.cifra-texto {
+    margin-top: 0.4rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .cifras {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2rem;
+    }
+}
+
+/* --- Tarjetas con inclinación 3D y brillo (solo ratón) --- */
+.inclinable {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.inclinable.inclinando {
+    transition: transform 0.12s linear, box-shadow 0.3s ease;
+}
+
+.inclinable::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(420px circle at var(--brillo-x, 50%) var(--brillo-y, 50%), rgba(255, 255, 255, 0.16), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.inclinable.inclinando::after {
+    opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .inclinable:hover {
+        transform: none;
+    }
+}
+
+/* --- Botones magnéticos: usan "translate" para no pisar el scale del :active --- */
+.magnetico {
+    transition: translate 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.16s var(--ease-out), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.magnetico.atraido {
+    transition: translate 0.15s var(--ease-out), transform 0.16s var(--ease-out), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+/* --- Imágenes de proyectos: se descubren al entrar en pantalla --- */
+.js-recorte .project-img {
+    clip-path: inset(0 0 100% 0 round 12px);
+    transition: clip-path 0.9s var(--ease-drawer);
+}
+
+.js-recorte .project-img.descubierta {
+    clip-path: inset(0 0 0 0 round 12px);
+}
+
+.js-recorte .project-img img {
+    scale: 1.12;
+    transition: scale 1.2s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.js-recorte .project-img.descubierta img {
+    scale: 1;
+}
+
+/* --- Caso de estudio a pantalla completa (estilo App Store) --- */
+.caso {
+    width: min(1100px, calc(100% - 2rem));
+    max-height: calc(100dvh - 2rem);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--card-bg);
+    color: var(--text);
+    box-shadow: 0 40px 120px -20px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+.caso::backdrop {
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(8px);
+}
+
+.caso[open] {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.3s var(--ease-out), transform 0.4s var(--ease-drawer), overlay 0.3s allow-discrete, display 0.3s allow-discrete;
+}
+
+@starting-style {
+    .caso[open] {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+    }
+}
+
+.caso-contenido {
+    position: relative;
+}
+
+.caso-cerrar {
+    position: sticky;
+    top: 1rem;
+    float: right;
+    margin: 1rem 1rem -3.5rem 0;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: #fff;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(12px);
+    transition: transform 0.16s var(--ease-out), background-color 0.2s ease;
+}
+
+.caso-cerrar:hover {
+    background: rgba(15, 23, 42, 0.75);
+}
+
+.caso-cerrar:active {
+    transform: scale(0.94);
+}
+
+.caso-portada {
+    background: #0b1020;
+    line-height: 0;
+}
+
+.caso-portada img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+}
+
+.caso-cuerpo {
+    padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.caso-cuerpo h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--heading);
+    margin: 0.75rem 0 0.75rem;
+}
+
+.caso-cuerpo h3 {
+    font-size: 1.15rem;
+    color: var(--heading);
+    margin: 2rem 0 0.75rem;
+}
+
+.caso-intro {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 60ch;
+}
+
+.caso-cuerpo ul {
+    padding-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.caso-cuerpo li::marker {
+    color: var(--primary);
+}
+
+.caso-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0 2.5rem;
+}
+
+.caso-galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.42fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    align-items: start;
+}
+
+.caso-galeria img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.caso-galeria figcaption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+}
+
+.caso-nota {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 700px) {
+    .caso-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .caso-galeria-movil {
+        width: 55%;
+    }
+}
+
+html.caso-abierto {
+    overflow: hidden;
+}
+
+/* La miniatura se convierte en la portada (View Transitions) */
+::view-transition-group(caso-imagen) {
+    animation-duration: 0.5s;
+    animation-timing-function: var(--ease-drawer);
+}
+
+@keyframes caso-fundido-salida {
+    to { opacity: 0; }
+}
+
+@keyframes caso-fundido-entrada {
+    from { opacity: 0; }
+}
+
+html.caso-vt::view-transition-old(root) {
+    animation: caso-fundido-salida 0.25s ease both;
+}
+
+html.caso-vt::view-transition-new(root) {
+    animation: caso-fundido-entrada 0.3s ease both;
+}
+
+/* --- Timeline que se dibuja al hacer scroll --- */
+.timeline-progreso {
+    position: absolute;
+    left: -2px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(var(--primary), #8b5cf6);
+    transform-origin: top;
+    transform: scaleY(0);
+    pointer-events: none;
+}
+
+.js-timeline .timeline-dot {
+    background-color: var(--border);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.js-timeline .timeline-item.alcanzado .timeline-dot {
+    background-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+/* --- Menos movimiento: todo lo de arriba queda quieto --- */
+@media (prefers-reduced-motion: reduce) {
+    .captura {
+        transform: none;
+        filter: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .dispositivo {
+        transform: none !important;
+    }
+
+    .js-recorte .project-img,
+    .js-recorte .project-img.descubierta {
+        clip-path: none;
+    }
+
+    .js-recorte .project-img img {
+        scale: 1;
+    }
+
+    .caso[open] {
+        transition: opacity 0.2s ease;
+    }
+
+    @starting-style {
+        .caso[open] {
+            opacity: 0;
+            transform: none;
+        }
     }
 }

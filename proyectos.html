@@ -17,8 +17,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Proyectos — Jaime Lopera</title>
     <link rel="preload" href="resources/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261111">
-    <script src="js/theme.js?v=20261111"></script>
+    <link rel="stylesheet" href="css/style.css?v=20261111b">
+    <script src="js/theme.js?v=20261111b"></script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='30' fill='%230f172a'/%3E%3Cg fill='none' stroke='%2360a5fa' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 44 14 64 32 84M96 44 114 64 96 84'/%3E%3C/g%3E%3Cg fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M56 42V72Q56 86 44 86M72 42V86H84'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -86,6 +86,29 @@
 
         <section class="section-container">
             <div class="grid-3" id="projectsGrid">
+                <div class="project-card" data-category="web" id="caso-dashboard">
+                    <div class="project-img">
+                        <img src="resources/dashboard-inicio.webp" alt="Captura del dashboard personal" loading="lazy" class="caso-miniatura" width="1600" height="960">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-type-row">
+                            <span class="project-type tipo-propio">Proyecto propio</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">IA (Groq)</span>
+                            <span class="tag">Vercel</span>
+                        </div>
+                        <h3>Dashboard personal</h3>
+                        <p>Web app privada para mis finanzas, mi plan de estudio semanal y mi correo. Sin frameworks, con Supabase y un modelo de IA de Groq por detrás.</p>
+                        <div class="project-links">
+                            <button type="button" class="btn-primary-sm abrir-caso" data-dialogo="dialogo-dashboard">Ver caso de estudio</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card" data-category="web">
                     <div class="project-img">
                         <img src="resources/microsite-badbunny.webp" alt="Captura del microsite de Bad Bunny" loading="lazy">
@@ -112,6 +135,70 @@
         </section>
     </main>
 
+    <dialog class="caso" id="dialogo-dashboard" aria-labelledby="caso-titulo">
+        <div class="caso-contenido">
+            <button type="button" class="caso-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+
+            <div class="caso-portada">
+                <img src="resources/dashboard-inicio.webp" alt="Inicio del dashboard con datos de ejemplo" width="1600" height="960">
+            </div>
+
+            <div class="caso-cuerpo">
+                <span class="project-type tipo-propio">Proyecto propio</span>
+                <h2 id="caso-titulo">Dashboard personal</h2>
+                <p class="caso-intro">Quería tener en un solo sitio mis gastos, lo que tengo que estudiar cada día y lo importante de mi correo, desde el ordenador y desde el móvil, y sin pagar nada por ello.</p>
+
+                <div class="caso-columnas">
+                    <div>
+                        <h3>Qué hace</h3>
+                        <ul>
+                            <li><strong>Inicio:</strong> balance del mes, lo que toca hoy, próximos exámenes y un temporizador pomodoro.</li>
+                            <li><strong>Finanzas:</strong> movimientos con filtros por mes y categoría, totales y dos gráficos con Chart.js.</li>
+                            <li><strong>Plan:</strong> exámenes, entregas y compromisos; con eso la IA genera el plan de la semana.</li>
+                            <li><strong>Correo:</strong> resumen de las últimas 24 horas en importantes, por responder y resto.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Cómo está hecho</h3>
+                        <ul>
+                            <li><strong>Frontend:</strong> HTML, CSS y JavaScript sin frameworks, desplegado en Vercel desde GitHub.</li>
+                            <li><strong>Backend:</strong> Supabase, con login por correo, PostgreSQL con RLS y Edge Functions en Deno.</li>
+                            <li><strong>IA:</strong> un modelo Qwen en Groq, al que solo se llama desde las Edge Functions.</li>
+                            <li><strong>Correo:</strong> un Google Apps Script lee Gmail y lo expone como una API protegida con clave.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Decisiones que tomé</h3>
+                <ul class="caso-decisiones">
+                    <li>Las claves de Groq y de Gmail se guardan como secretos en Supabase y nunca llegan al navegador.</li>
+                    <li>El plan se genera en dos pasos, primero la estrategia y luego cada día, para no pasarse del límite de tokens.</li>
+                    <li>Lo que ya ha pasado no se reescribe: el JavaScript descarta los bloques de la IA que pisan horas pasadas.</li>
+                    <li>Cada página tiene su propia hoja de estilos, colgada de la clase del body, para que no se pisen entre ellas.</li>
+                </ul>
+
+                <div class="caso-galeria">
+                    <figure>
+                        <img src="resources/dashboard-finanzas.webp" alt="Página de finanzas con gráficos" loading="lazy" width="1600" height="960">
+                        <figcaption>Finanzas</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="resources/dashboard-plan.webp" alt="Plan semanal generado por la IA" loading="lazy" width="1600" height="960">
+                        <figcaption>Plan semanal</figcaption>
+                    </figure>
+                    <figure class="caso-galeria-movil">
+                        <img src="resources/dashboard-inicio-movil.webp" alt="Inicio del dashboard en el móvil" loading="lazy" width="600" height="1298">
+                        <figcaption>Móvil</figcaption>
+                    </figure>
+                </div>
+
+                <p class="caso-nota">Capturas con datos de ejemplo. El repositorio es privado y el acceso a la app está limitado a mi cuenta.</p>
+            </div>
+        </div>
+    </dialog>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
@@ -130,7 +217,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20261111"></script>
-    <script src="js/idiomas.js?v=20261111"></script>
+    <script src="js/main.js?v=20261111b"></script>
+    <script src="js/idiomas.js?v=20261111b"></script>
 </body>
 </html>
