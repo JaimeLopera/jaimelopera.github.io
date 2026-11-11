@@ -335,9 +335,10 @@ if (contactForm) {
         contadores.forEach(contador => observadorCifras.observe(contador));
     }
 
-    // 10. Tarjetas con inclinación 3D y brillo que sigue al ratón
+    // 10. Inclinación 3D y brillo que sigue al ratón: solo en proyectos y en el
+    //     resumen de la portada; en el resto de tarjetas sería ruido repetido
     if (conRaton && !reducirMovimiento) {
-        document.querySelectorAll(".feature-card, .project-card, .tesela, .info-card, .cert-card, .timeline-card, .about-card-box, .sidebar-block, .contact-card-item").forEach(tarjeta => {
+        document.querySelectorAll(".project-card, .vistazo-tesela").forEach(tarjeta => {
             tarjeta.classList.add("inclinable");
 
             tarjeta.addEventListener("pointermove", (e) => {
@@ -360,9 +361,9 @@ if (contactForm) {
         });
     }
 
-    // 11. Botones magnéticos: se acercan un poco al cursor
+    // 11. Botones magnéticos: solo las llamadas a la acción marcadas con .magnetico
     if (conRaton && !reducirMovimiento) {
-        document.querySelectorAll(".magnetico, main .btn-primary:not(.btn-full), main .btn-secondary").forEach(boton => {
+        document.querySelectorAll(".magnetico").forEach(boton => {
             boton.classList.add("magnetico");
             boton.addEventListener("pointermove", (e) => {
                 const caja = boton.getBoundingClientRect();

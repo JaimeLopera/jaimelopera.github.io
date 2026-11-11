@@ -13,7 +13,7 @@ Web personal de Jaime Lopera Velázquez, estudiante de 2º de Desarrollo de Apli
 - Versión en español e inglés. El HTML está en español y `js/idiomas.js` traduce los textos con un diccionario.
 - Formulario de contacto conectado a Formspree, con mensajes de éxito y de error.
 - Diseño responsive con menú móvil.
-- Accesibilidad: foco visible, etiquetas `aria` y respeto a `prefers-reduced-motion`.
+- Accesibilidad: contraste AA en claro y oscuro, zonas táctiles de al menos 44 px en móvil, foco visible, etiquetas `aria` y respeto a `prefers-reduced-motion`.
 - SEO básico: metadatos Open Graph, `sitemap.xml`, `robots.txt` y URL canónica.
 
 ## Tecnologías
@@ -48,7 +48,7 @@ Y abre http://localhost:8000 en el navegador.
 
 - **Sin frameworks ni dependencias:** todo el código es HTML, CSS y JavaScript propio.
 - **Rendimiento:** imágenes en WebP y fuentes alojadas en local.
-- **Animaciones moderadas:** aparición al hacer scroll y pequeñas transiciones, todas desactivadas con `prefers-reduced-motion`.
+- **Animaciones con criterio:** aparición al hacer scroll, historia fija del dashboard y caso de estudio con View Transitions. La inclinación 3D se reserva a las tarjetas de proyectos y los botones magnéticos a las llamadas a la acción. Todo se reduce con `prefers-reduced-motion`.
 
 ## Contacto
 
