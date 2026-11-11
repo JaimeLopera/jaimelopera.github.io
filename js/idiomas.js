@@ -28,7 +28,6 @@ const traducciones = {
     "Sobre mí — Jaime Lopera": "About me — Jaime Lopera",
 
     /* ---------- index.html ---------- */
-    "Hola, soy Jaime 👋": "Hi, I'm Jaime 👋",
     "Estudiante de DAW · Desarrollo web": "DAW student · Web development",
     "Descargar CV": "Download CV",
     "Estoy haciendo el ciclo de": "I'm doing the",
@@ -48,32 +47,32 @@ const traducciones = {
     "Diseño de interfaces": "Interface design",
     "Antes de programar una web suelo diseñarla en Figma. Así veo antes los problemas y el resultado queda más cuidado.":
         "Before coding a website I usually design it in Figma. That way I spot problems earlier and the result is more polished.",
-    "Ver ejemplos →": "See examples →",
+    "Ver el microsite →": "See the microsite →",
     "Documento lo que aprendo": "I document what I learn",
     "Llevo mis propias notas de desarrollo web organizadas por lenguaje y herramienta en":
         "I keep my own web development notes, organised by language and tool, in",
     "Visualizar →": "View →",
+    "Con qué trabajo": "What I work with",
     "¿Buscas un Desarrollador Junior?": "Looking for a Junior Developer?",
-    "Si tu empresa acepta alumnos en prácticas, me encantaría hablar contigo. Un correo o un café es suficiente para empezar.":
-        "If your company takes on interns, I'd love to talk to you. An email or a coffee is enough to get started.",
+    "Si tu empresa acepta alumnos en prácticas, me encantaría hablar contigo. Con un correo es suficiente para empezar.":
+        "If your company takes on interns, I'd love to talk to you. An email is enough to get started.",
 
     /* ---------- experiencia.html ---------- */
     "Experiencia y formación": "Experience and education",
     "Dónde he trabajado y qué he estudiado hasta ahora.": "Where I've worked and what I've studied so far.",
-    "💼 Experiencia": "💼 Experience",
     "Mayo 2026": "May 2026",
     "Diseñador web — Kliché Marketing y Publicidad": "Web designer — Kliché Marketing y Publicidad",
-    "📍 Granada | Prácticas de Grado": "📍 Granada | Degree work placement",
+    "Granada | Prácticas de Grado": "Granada | Degree work placement",
     "Trabajé en la maquetación de páginas web dentro de una agencia de marketing.":
         "I worked on building web page layouts at a marketing agency.",
-    "🎓 Formación": "🎓 Education",
+    "Formación": "Education",
     "DAW bilingüe (Grado Superior)": "Bilingual DAW (Higher Vocational Degree)",
     "Aquí aprendo desarrollo front-end y back-end, bases de datos y sistemas. Parte de las asignaturas se dan en inglés.":
         "Here I learn front-end and back-end development, databases and systems. Some of the subjects are taught in English.",
     "Bachillerato Tecnológico": "Technological Baccalaureate",
     "Me dio buena base en matemáticas y física, y me ayudó a pensar los problemas con más lógica.":
         "It gave me a solid base in maths and physics, and helped me approach problems more logically.",
-    "📜 Cursos y programas": "📜 Courses and programmes",
+    "Cursos y programas": "Courses and programmes",
     "Usos profesionales de la IA generativa": "Professional uses of generative AI",
     "Curso sobre cómo usar herramientas de IA en el trabajo y en programación, y sobre todo cuándo no fiarse de ellas.":
         "A course on how to use AI tools at work and when programming, and above all when not to trust them.",
@@ -93,7 +92,7 @@ const traducciones = {
     "Ver en Github ↗": "View on GitHub ↗",
 
     /* ---------- sobre-mi.html ---------- */
-    "Un poco sobre mí 😊": "A little about me 😊",
+    "Un poco sobre mí": "A little about me",
     "Quién soy, cómo trabajo y con qué herramientas.": "Who I am, how I work and what tools I use.",
     "Hola, soy Jaime": "Hi, I'm Jaime",
     "Vivo en Granada y estudio el grado superior de": "I live in Granada and I'm studying the higher vocational degree in",
@@ -112,7 +111,7 @@ const traducciones = {
         "Before getting into development I worked serving the public and with large groups of people. That experience taught me to be approachable, to really listen, and to stay calm and organised when things get rushed, which I now apply to teamwork.",
     "Creo que en un equipo importa tanto saber programar como saber explicar lo que haces, y por eso cuido tanto el código como la forma de comunicarlo. Busco un lugar donde seguir creciendo, aportar desde el primer día y aprender de gente con más experiencia.":
         "I think that in a team, knowing how to code matters as much as knowing how to explain what you do, which is why I care as much about my code as about how I communicate it. I'm looking for a place where I can keep growing, contribute from day one and learn from more experienced people.",
-    "💡 Cómo trabajo": "💡 How I work",
+    "Cómo trabajo": "How I work",
     "Aprendo rápido:": "I learn fast:",
     "si no sé algo, lo busco, lo pruebo y lo pregunto.": "if I don't know something, I look it up, try it out and ask.",
     "Código ordenado:": "Tidy code:",
@@ -120,18 +119,17 @@ const traducciones = {
         "I prefer something simple that can be understood over something \"clever\" that nobody can touch.",
     "Hablo claro:": "I communicate clearly:",
     "aviso pronto si algo no va a llegar a tiempo.": "I give early warning if something isn't going to be ready on time.",
-    "🛠️ Tecnologías": "🛠️ Technologies",
+    "Tecnologías": "Technologies",
     "Con las que trabajo más": "The ones I use most",
     "Herramientas": "Tools",
-    "💬 Idiomas": "💬 Languages",
-    "🇪🇸 Español": "🇪🇸 Spanish",
+    "Idiomas": "Languages",
+    "Español": "Spanish",
     "Nativo": "Native",
-    "🇬🇧 Inglés": "🇬🇧 English",
     "Parte del ciclo lo cursé en inglés, así que estoy acostumbrado a leer documentación y trabajar en ese idioma.":
         "Part of my course was taught in English, so I'm used to reading documentation and working in that language.",
 
     /* ---------- contacto.html ---------- */
-    "Hablemos 📬": "Let's talk 📬",
+    "Hablemos": "Let's talk",
     "Para unas prácticas, una duda sobre algún proyecto o simplemente para saludar.":
         "About an internship, a question about a project, or just to say hi.",
     "Cómo contactarme": "How to reach me",
@@ -154,10 +152,10 @@ const traducciones = {
     "404 · Página no encontrada": "404 · Page not found",
     "Esta dirección no existe o ha cambiado de sitio.": "This address doesn't exist or has moved.",
     "Volver al inicio": "Back to home",
-    "❌ No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme por correo.": "❌ The message could not be sent. Please try again or email me.",
+    "No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme por correo.": "The message could not be sent. Please try again or email me.",
     "Currículum": "Résumé",
     "Descargar CV en PDF": "Download résumé (PDF)",
-    "✅ ¡Gracias! He recibido tu mensaje y te responderé pronto.": "✅ Thanks! I've received your message and I'll reply soon.",
+    "¡Gracias! He recibido tu mensaje y te responderé pronto.": "Thanks! I've received your message and I'll reply soon.",
 
     /* ---------- privacidad.html ---------- */
     "Política de privacidad": "Privacy policy",

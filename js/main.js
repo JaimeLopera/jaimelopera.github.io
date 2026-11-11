@@ -90,24 +90,13 @@ if (contactForm) {
         });
     }
 
-    // 5. Animaciones: navbar con sombra, barra de progreso y aparición al hacer scroll
+    // 5. Animaciones: navbar con sombra y aparición al hacer scroll
     const navbar = document.querySelector(".navbar");
-    const barra = document.createElement("div");
-    barra.className = "barra-progreso";
-
-    if (navbar) {
-        navbar.appendChild(barra);
-    }
 
     const alHacerScroll = () => {
-        const scrollActual = window.scrollY;
-        const alturaTotal = document.documentElement.scrollHeight - window.innerHeight;
-
         if (navbar) {
-            navbar.classList.toggle("scrolled", scrollActual > 10);
+            navbar.classList.toggle("scrolled", window.scrollY > 10);
         }
-
-        barra.style.width = (alturaTotal > 0 ? (scrollActual / alturaTotal) * 100 : 0) + "%";
     };
 
     window.addEventListener("scroll", alHacerScroll, { passive: true });
@@ -138,7 +127,7 @@ if (contactForm) {
     elementosReveal.forEach(el => {
         const hermanos = Array.from(el.parentElement.children).filter(h => h.classList.contains("reveal"));
         const posicion = hermanos.indexOf(el);
-        el.style.setProperty("--delay", (Math.min(posicion, 4) * 0.1) + "s");
+        el.style.setProperty("--delay", (Math.min(posicion, 4) * 0.06) + "s");
     });
 
     if ("IntersectionObserver" in window) {
@@ -192,47 +181,4 @@ if (contactForm) {
         window.addEventListener("resize", () => moverA(activo));
         window.addEventListener("load", () => moverA(activo));
     }
-
-    // 7. Fundido suave al cambiar de página
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        document.addEventListener("click", (e) => {
-            const enlace = e.target.closest("a");
-
-            if (!enlace || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
-                return;
-            }
-
-            if (enlace.target === "_blank" || enlace.hasAttribute("download")) {
-                return;
-            }
-
-            const destino = new URL(enlace.href, window.location.href);
-
-            if (destino.protocol !== window.location.protocol || destino.origin !== window.location.origin || destino.pathname === window.location.pathname) {
-                return;
-            }
-
-            e.preventDefault();
-            document.body.classList.add("saliendo");
-
-            setTimeout(() => {
-                window.location.href = destino.href;
-            }, 200);
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) {
-                document.body.classList.remove("saliendo");
-            }
-        });
-    }
-
-    // 8. Foco de luz que sigue al ratón en las tarjetas
-    document.querySelectorAll(".project-card, .feature-card").forEach(tarjeta => {
-        tarjeta.addEventListener("pointermove", (e) => {
-            const caja = tarjeta.getBoundingClientRect();
-            tarjeta.style.setProperty("--mx", (e.clientX - caja.left) + "px");
-            tarjeta.style.setProperty("--my", (e.clientY - caja.top) + "px");
-        });
-    });
 });

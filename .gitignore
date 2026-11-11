@@ -1,0 +1,11 @@
+# Skills y herramientas de agentes (no forman parte de la web)
+.agents/
+.claude/
+skills-lock.json
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
