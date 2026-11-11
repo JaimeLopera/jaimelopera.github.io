@@ -164,7 +164,8 @@ if (contactForm) {
     const textosLuz = reducirMovimiento ? [] : document.querySelectorAll(".texto-luz-relleno");
     const dispositivo = reducirMovimiento ? null : document.querySelector(".dispositivo");
     const timelines = document.querySelectorAll(".timeline");
-    const cabecera = reducirMovimiento ? null : document.querySelector(".page-header");
+    // La cabecera ya no se aleja al hacer scroll: el texto se queda quieto
+    const cabecera = null;
     const piezasCabecera = cabecera ? cabecera.querySelectorAll("h1, p") : [];
 
     if (textosLuz.length > 0) raiz.classList.add("js-luz");
@@ -335,29 +336,20 @@ if (contactForm) {
         contadores.forEach(contador => observadorCifras.observe(contador));
     }
 
-    // 10. Inclinación 3D y brillo que sigue al ratón: solo en proyectos y en el
-    //     resumen de la portada; en el resto de tarjetas sería ruido repetido
+    // 10. Brillo que sigue al ratón en las teselas del resumen de la portada.
+    //     Sin inclinación 3D: la tarjeta solo sube 2 px (lo hace el CSS)
     if (conRaton && !reducirMovimiento) {
-        document.querySelectorAll(".project-card, .vistazo-tesela").forEach(tarjeta => {
+        document.querySelectorAll(".vistazo-tesela").forEach(tarjeta => {
             tarjeta.classList.add("inclinable");
 
             tarjeta.addEventListener("pointermove", (e) => {
                 const caja = tarjeta.getBoundingClientRect();
-                const x = (e.clientX - caja.left) / caja.width;
-                const y = (e.clientY - caja.top) / caja.height;
-
                 tarjeta.classList.add("inclinando");
-                tarjeta.style.transform =
-                    "perspective(900px) rotateX(" + ((0.5 - y) * 7).toFixed(2) + "deg) rotateY(" +
-                    ((x - 0.5) * 7).toFixed(2) + "deg) translateY(-4px)";
-                tarjeta.style.setProperty("--brillo-x", (x * 100).toFixed(1) + "%");
-                tarjeta.style.setProperty("--brillo-y", (y * 100).toFixed(1) + "%");
+                tarjeta.style.setProperty("--brillo-x", ((e.clientX - caja.left) / caja.width * 100).toFixed(1) + "%");
+                tarjeta.style.setProperty("--brillo-y", ((e.clientY - caja.top) / caja.height * 100).toFixed(1) + "%");
             });
 
-            tarjeta.addEventListener("pointerleave", () => {
-                tarjeta.classList.remove("inclinando");
-                tarjeta.style.transform = "";
-            });
+            tarjeta.addEventListener("pointerleave", () => tarjeta.classList.remove("inclinando"));
         });
     }
 
@@ -465,6 +457,9 @@ if (contactForm) {
         };
 
         boton.addEventListener("click", abrir);
+
+        const visual = boton.closest(".project-card").querySelector("[data-abre]");
+        if (visual) visual.addEventListener("click", abrir);
         dialogo.querySelector(".caso-cerrar").addEventListener("click", cerrar);
 
         // Esc y clic fuera de la ficha cierran con la misma animación

@@ -12,6 +12,23 @@
 const CLAVE_IDIOMA = "idioma";
 
 const traducciones = {
+    /* ---------- Proyectos (rediseño) ---------- */
+    "Tres proyectos hechos de principio a fin. En cada uno cuento qué problema resuelve y cómo lo hice.": "Three projects built from start to finish. For each one I explain what problem it solves and how I built it.",
+    "Índice de proyectos": "Project index",
+    "Lista de proyectos": "Project list",
+    "Tecnologías": "Tech",
+    "Estado": "Status",
+    "Reglas": "Rules",
+    "Contenido": "Content",
+    "JavaScript, Supabase, PostgreSQL, Groq y Vercel": "JavaScript, Supabase, PostgreSQL, Groq and Vercel",
+    "Publicado y en uso cada día": "Live and in daily use",
+    "HTML, CSS y Figma": "HTML, CSS and Figma",
+    "Sin JavaScript y sin grid": "No JavaScript and no grid",
+    "Markdown, Obsidian y Git": "Markdown, Obsidian and Git",
+    "86 notas en 6 bloques": "86 notes in 6 sections",
+    "Visitar la web ↗": "Visit the site ↗",
+    "Ver el código en GitHub ↗": "View the code on GitHub ↗",
+    "Ver las notas en GitHub ↗": "View the notes on GitHub ↗",
     /* ---------- Común: navbar, footer, títulos ---------- */
     "Inicio": "Home",
     "Experiencia": "Experience",
@@ -292,7 +309,7 @@ const traducciones = {
     "política de privacidad": "privacy policy",
     "Enviar mensaje": "Send message",
     "Página no encontrada — Jaime Lopera": "Page not found — Jaime Lopera",
-    "404 · Página no encontrada": "404 · Page not found",
+    "Página no encontrada": "Page not found",
     "Esta dirección no existe o ha cambiado de sitio.": "This address doesn't exist or has moved.",
     "Volver al inicio": "Back to home",
     "No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme por correo.": "The message could not be sent. Please try again or email me.",

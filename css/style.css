@@ -1834,12 +1834,7 @@ html.tema-vt::view-transition-new(root) {
 /* --- Tarjetas con inclinación 3D y brillo (solo ratón) --- */
 .inclinable {
     position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s var(--ease-out), box-shadow 0.3s ease;
-}
-
-.inclinable.inclinando {
-    transition: transform 0.12s linear, box-shadow 0.3s ease;
+    transition: transform 0.25s var(--ease-out), box-shadow 0.3s ease;
 }
 
 .inclinable::after {
@@ -1858,8 +1853,9 @@ html.tema-vt::view-transition-new(root) {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .inclinable:hover {
-        transform: none;
+    a.inclinable:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
     }
 }
 
@@ -3123,4 +3119,284 @@ html {
     width: 1.35rem;
     height: 1.35rem;
     margin-top: 0.1rem;
+}
+
+
+/* ==========================================================================
+   PROYECTOS: cabecera con índice y una fila grande por proyecto
+   ========================================================================== */
+
+.proyectos-cabecera {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+    padding-top: clamp(3.5rem, 9vw, 7rem);
+    padding-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.proyectos-intro h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--heading);
+    margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s var(--ease-out) backwards;
+}
+
+.proyectos-intro p {
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    line-height: 1.55;
+    color: var(--text-muted);
+    max-width: 40ch;
+    animation: fadeUp 0.6s var(--ease-out) 0.08s backwards;
+}
+
+.proyectos-indice {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.6s var(--ease-out) 0.16s backwards;
+}
+
+.proyectos-indice a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 44px;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--heading);
+}
+
+.indice-nombre {
+    font-weight: 700;
+    font-size: 1.1rem;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s var(--ease-out);
+}
+
+.indice-dato {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .proyectos-indice a:hover .indice-nombre {
+        background-size: 100% 1px;
+    }
+}
+
+/* Cada proyecto es una fila: captura grande a un lado, texto al otro */
+.proyectos-lista {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: clamp(4rem, 9vw, 7rem);
+}
+
+.project-card.proyecto {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding: clamp(3rem, 7vw, 5.5rem) 0;
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    box-shadow: none;
+    scroll-margin-top: 4rem;
+}
+
+.project-card.proyecto:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.proyecto-invertido .proyecto-visual {
+    order: 2;
+}
+
+.proyecto-visual {
+    display: block;
+    cursor: zoom-in;
+}
+
+a.proyecto-visual {
+    cursor: pointer;
+}
+
+.proyecto .project-img {
+    margin: 0;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06), 0 24px 56px rgba(15, 23, 42, 0.14);
+}
+
+.proyecto .project-img img {
+    transition: transform 0.5s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .proyecto:hover .project-img img {
+        transform: none;
+    }
+
+    .proyecto-visual:hover .project-img img {
+        transform: scale(1.03);
+    }
+}
+
+.proyecto-texto h2 {
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    color: var(--heading);
+    margin: 1rem 0 1rem;
+}
+
+.proyecto-resumen {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 46ch;
+    margin-bottom: 1.75rem;
+}
+
+.proyecto-datos {
+    display: grid;
+    gap: 0;
+    margin: 0 0 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.proyecto-datos > div {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+.proyecto-datos dt {
+    color: var(--text-muted);
+}
+
+.proyecto-datos dd {
+    margin: 0;
+    color: var(--heading);
+    font-weight: 600;
+}
+
+.proyecto .project-links {
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.proyecto .project-links .abrir-caso {
+    flex: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.proyecto .project-links .btn-secondary {
+    flex: none;
+}
+
+/* La miniatura de DevNotes, a tamaño de fila */
+.proyecto .notas-miniatura {
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 4.5vw, 3.5rem);
+}
+
+.proyecto .notas-arbol {
+    gap: clamp(0.5rem, 1.2vw, 0.9rem);
+    font-size: clamp(0.8rem, 1.3vw, 1.05rem);
+}
+
+.proyecto .notas-titulo {
+    font-size: 1.2em;
+    margin-bottom: 0.4rem;
+}
+
+.proyecto .notas-fila {
+    grid-template-columns: 8.5em 1fr 2em;
+}
+
+.proyecto .notas-barra {
+    height: 8px;
+}
+
+@media (max-width: 900px) {
+    .proyectos-cabecera,
+    .project-card.proyecto {
+        grid-template-columns: 1fr;
+    }
+
+    .proyectos-cabecera {
+        gap: 2rem;
+    }
+
+    .proyecto-invertido .proyecto-visual {
+        order: 0;
+    }
+
+    .project-card.proyecto {
+        gap: 1.75rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .proyecto .project-links > *,
+    .proyecto .project-links .abrir-caso,
+    .proyecto .project-links .btn-secondary {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .proyecto-datos > div {
+        grid-template-columns: 6.5rem minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .proyectos-intro h1,
+    .proyectos-intro p,
+    .proyectos-indice {
+        animation: none;
+    }
+}
+
+/* Cabecera de página común (Experiencia, Contacto, Privacidad, 404):
+   misma voz que Proyectos, alineada a la izquierda y sin banda de color */
+.page-header {
+    background: none;
+    border-bottom: 0;
+    text-align: left;
+    width: 100%;
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: clamp(3.5rem, 9vw, 7rem) var(--margen-lateral) clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.page-header h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.25rem;
+}
+
+.page-header p {
+    margin: 0;
+    max-width: 44ch;
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    line-height: 1.55;
 }
