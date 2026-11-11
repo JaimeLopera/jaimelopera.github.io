@@ -120,6 +120,7 @@ if (contactForm) {
         ".cifra",
         ".pill",
         ".about-card-box li",
+        ".tesela",
         ".contact-card-item",
         ".cta-container"
     ].join(", ");
@@ -228,7 +229,7 @@ if (contactForm) {
 
     // 7b. Títulos que se descubren de abajo arriba al aparecer
     const titulos = reducirMovimiento ? [] : document.querySelectorAll(
-        ".section-title h2, .timeline-title, .about-text h2, .contact-info h2, .contact-form-wrapper h2, .sidebar-block h3, .about-card-box h3"
+        ".section-title h2, .capitulos-fijo h2, .timeline-title, .about-text h2, .contact-info h2, .contact-form-wrapper h2, .sidebar-block h3, .about-card-box h3"
     );
 
     if (titulos.length > 0 && "IntersectionObserver" in window) {
@@ -263,6 +264,23 @@ if (contactForm) {
         }, { rootMargin: "-50% 0px -50% 0px" });
 
         pasos.forEach(paso => observadorPasos.observe(paso));
+    }
+
+    // 8b. Capítulos de "Quién soy": se enciende el que cruza el centro
+    const capitulos = document.querySelectorAll(".capitulo");
+    const puntosCapitulo = document.querySelectorAll(".capitulos-puntos span");
+
+    if (capitulos.length > 0 && "IntersectionObserver" in window) {
+        const observadorCapitulos = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (!entrada.isIntersecting) return;
+                const indice = Array.from(capitulos).indexOf(entrada.target);
+                capitulos.forEach((c, i) => c.classList.toggle("activo", i === indice));
+                puntosCapitulo.forEach((p, i) => p.classList.toggle("activo", i === indice));
+            });
+        }, { rootMargin: "-45% 0px -45% 0px" });
+
+        capitulos.forEach(c => observadorCapitulos.observe(c));
     }
 
     // 9. Contadores que suben al aparecer
@@ -300,7 +318,7 @@ if (contactForm) {
 
     // 10. Tarjetas con inclinación 3D y brillo que sigue al ratón
     if (conRaton && !reducirMovimiento) {
-        document.querySelectorAll(".feature-card, .project-card, .info-card, .cert-card, .timeline-card, .about-card-box, .sidebar-block, .contact-card-item").forEach(tarjeta => {
+        document.querySelectorAll(".feature-card, .project-card, .tesela, .info-card, .cert-card, .timeline-card, .about-card-box, .sidebar-block, .contact-card-item").forEach(tarjeta => {
             tarjeta.classList.add("inclinable");
 
             tarjeta.addEventListener("pointermove", (e) => {

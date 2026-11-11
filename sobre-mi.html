@@ -17,8 +17,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Sobre mí — Jaime Lopera</title>
     <link rel="preload" href="resources/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261111c">
-    <script src="js/theme.js?v=20261111c"></script>
+    <link rel="stylesheet" href="css/style.css?v=20261111d">
+    <script src="js/theme.js?v=20261111d"></script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='30' fill='%230f172a'/%3E%3Cg fill='none' stroke='%2360a5fa' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 44 14 64 32 84M96 44 114 64 96 84'/%3E%3C/g%3E%3Cg fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M56 42V72Q56 86 44 86M72 42V86H84'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -79,85 +79,118 @@
     </header>
 
     <main class="page-content">
-        <section class="page-header">
-            <h1>Un poco sobre mí</h1>
-            <p>Quién soy, cómo trabajo y con qué herramientas.</p>
+        <section class="sobre-hero">
+            <div class="section-container sobre-hero-contenedor">
+                <div class="sobre-hero-texto">
+                    <span class="eyebrow">Sobre mí</span>
+                    <h1>Hola, soy Jaime</h1>
+                    <p class="sobre-hero-lead">Vivo en Granada y estudio el grado superior de Desarrollo de Aplicaciones Web (DAW) en modalidad bilingüe.</p>
+                    <div class="sobre-chips">
+                        <span class="sobre-chip"><span class="status-dot"></span>Buscando prácticas</span>
+                        <span class="sobre-chip">2º DAW bilingüe</span>
+                        <span class="sobre-chip">Inglés B2</span>
+                    </div>
+                </div>
+                <div class="sobre-hero-foto">
+                    <img src="resources/mi_foto.webp" alt="Jaime Lopera Velázquez" width="600" height="800">
+                </div>
+            </div>
         </section>
 
         <section class="section-container manifiesto">
             <p class="texto-luz"><span class="texto-luz-relleno">Lo que más me gusta de esta profesión es poder construir cosas que funcionen de principio a fin: desde la idea y el diseño hasta tenerlas publicadas y a la vista de cualquiera.</span></p>
         </section>
 
+        <section class="section-container capitulos">
+            <div class="capitulos-fijo">
+                <h2>Quién soy</h2>
+                <div class="capitulos-puntos" aria-hidden="true"><span class="activo"></span><span></span><span></span></div>
+            </div>
+            <div class="capitulos-lista">
+                <article class="capitulo activo">
+                    <h3>Aprendo por mi cuenta</h3>
+                    <p>Fuera de clase sigo aprendiendo por mi cuenta. Desarrollo mis propios proyectos, pruebo herramientas nuevas y voy documentando todo lo que aprendo en una base de conocimiento personal, así tengo siempre a mano lo que he visto y puedo repasarlo o compartirlo cuando hace falta.</p>
+                </article>
+                <article class="capitulo">
+                    <h3>Trato con la gente</h3>
+                    <p>Antes de dedicarme al desarrollo he trabajado de cara al público y con grupos grandes de personas. Esa experiencia me enseñó a ser cercano, a escuchar de verdad y a mantener la calma y organizarme cuando hay prisa, cosas que ahora aplico al trabajo en equipo.</p>
+                </article>
+                <article class="capitulo">
+                    <h3>En un equipo</h3>
+                    <p>Creo que en un equipo importa tanto saber programar como saber explicar lo que haces, y por eso cuido tanto el código como la forma de comunicarlo. Busco un lugar donde seguir creciendo, aportar desde el primer día y aprender de gente con más experiencia.</p>
+                </article>
+            </div>
+        </section>
+
         <section class="section-container">
-            <div class="about-layout">
+            <div class="section-title text-center">
+                <h2>Cómo trabajo</h2>
+            </div>
+            <div class="mosaico mosaico-3">
+                <div class="tesela">
+                    <span class="tesela-num">01</span>
+                    <h3>Aprendo rápido</h3>
+                    <p>Si no sé algo, lo busco, lo pruebo y lo pregunto.</p>
+                </div>
+                <div class="tesela">
+                    <span class="tesela-num">02</span>
+                    <h3>Código ordenado</h3>
+                    <p>Prefiero algo sencillo que se entienda a algo "listo" que nadie pueda tocar.</p>
+                </div>
+                <div class="tesela">
+                    <span class="tesela-num">03</span>
+                    <h3>Hablo claro</h3>
+                    <p>Aviso pronto si algo no va a llegar a tiempo.</p>
+                </div>
+            </div>
+        </section>
 
-                <div class="about-main">
-                    <div class="about-text">
-                        <h2>Quién soy</h2>
-                        <p>Soy Jaime, vivo en Granada y estudio el grado superior de Desarrollo de Aplicaciones Web (DAW) en modalidad bilingüe.</p>
-                        <p>Fuera de clase sigo aprendiendo por mi cuenta. Desarrollo mis propios proyectos, pruebo herramientas nuevas y voy documentando todo lo que aprendo en una base de conocimiento personal, así tengo siempre a mano lo que he visto y puedo repasarlo o compartirlo cuando hace falta.</p>
-                        <p>Antes de dedicarme al desarrollo he trabajado de cara al público y con grupos grandes de personas. Esa experiencia me enseñó a ser cercano, a escuchar de verdad y a mantener la calma y organizarme cuando hay prisa, cosas que ahora aplico al trabajo en equipo.</p>
-                        <p>Creo que en un equipo importa tanto saber programar como saber explicar lo que haces, y por eso cuido tanto el código como la forma de comunicarlo. Busco un lugar donde seguir creciendo, aportar desde el primer día y aprender de gente con más experiencia.</p>
+        <section class="section-container">
+            <div class="section-title text-center">
+                <h2>Con qué trabajo</h2>
+            </div>
+            <div class="mosaico mosaico-stack">
+                <div class="tesela tesela-ancha tesela-oscura">
+                    <h3>Con las que trabajo más</h3>
+                    <ul class="palabras-grandes">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>PHP</li>
+                        <li>SQL / MySQL</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="tesela">
+                    <h3>Herramientas</h3>
+                    <ul class="palabras-medias">
+                        <li>Git / GitHub</li>
+                        <li>Figma</li>
+                        <li>VS Code</li>
+                        <li>PHP Storm</li>
+                        <li>Obsidian</li>
+                    </ul>
+                </div>
+                <div class="tesela tesela-idioma">
+                    <h3>Idiomas</h3>
+                    <div class="idioma-fila">
+                        <span class="idioma-nivel">B2</span>
+                        <span class="idioma-nombre">Inglés</span>
                     </div>
-
-                    <div class="about-card-box">
-                        <h3>Cómo trabajo</h3>
-                        <ul>
-                            <li><strong>Aprendo rápido:</strong> si no sé algo, lo busco, lo pruebo y lo pregunto.</li>
-                            <li><strong>Código ordenado:</strong> prefiero algo sencillo que se entienda a algo "listo" que nadie pueda tocar.</li>
-                            <li><strong>Hablo claro:</strong> aviso pronto si algo no va a llegar a tiempo.</li>
-                        </ul>
+                    <p>Parte del ciclo lo cursé en inglés, así que estoy acostumbrado a leer documentación y trabajar en ese idioma.</p>
+                    <div class="idioma-fila idioma-fila-sec">
+                        <span class="idioma-nombre">Español</span>
+                        <strong>Nativo</strong>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <aside class="about-sidebar">
-                    <div class="sidebar-block">
-                        <h3>Tecnologías</h3>
-
-                        <div class="skills-block">
-                            <h4>Con las que trabajo más</h4>
-                            <div class="pills-container">
-                                <span class="pill pill-primary">HTML</span>
-                                <span class="pill pill-primary">CSS</span>
-                                <span class="pill pill-primary">JavaScript</span>
-                                <span class="pill pill-primary">PHP</span>
-                                <span class="pill pill-primary">SQL / MySQL</span>
-                                <span class="pill pill-primary">Python</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-block">
-                            <h4>Herramientas</h4>
-                            <div class="pills-container">
-                                <span class="pill">Git / GitHub</span>
-                                <span class="pill">Figma</span>
-                                <span class="pill">VS Code</span>
-                                <span class="pill">PHP Storm</span>
-                                <span class="pill">Obsidian</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-block">
-                        <h3>Idiomas</h3>
-
-                        <div class="sidebar-lang">
-                            <div class="sidebar-lang-head">
-                                <span>Español</span>
-                                <strong>Nativo</strong>
-                            </div>
-                        </div>
-
-                        <div class="sidebar-lang">
-                            <div class="sidebar-lang-head">
-                                <span>Inglés</span>
-                                <strong>B2</strong>
-                            </div>
-                            <p>Parte del ciclo lo cursé en inglés, así que estoy acostumbrado a leer documentación y trabajar en ese idioma.</p>
-                        </div>
-                    </div>
-                </aside>
-
+        <section class="cta-banner">
+            <div class="cta-container">
+                <h2>¿Buscas un Desarrollador Junior?</h2>
+                <p>Si tu empresa acepta alumnos en prácticas, me encantaría hablar contigo. Con un correo es suficiente para empezar.</p>
+                <a href="contacto.html" class="btn-primary magnetico">Escríbeme</a>
             </div>
         </section>
     </main>
@@ -180,7 +213,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20261111c"></script>
-    <script src="js/idiomas.js?v=20261111c"></script>
+    <script src="js/main.js?v=20261111d"></script>
+    <script src="js/idiomas.js?v=20261111d"></script>
 </body>
 </html>

@@ -17,8 +17,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Proyectos — Jaime Lopera</title>
     <link rel="preload" href="resources/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261111c">
-    <script src="js/theme.js?v=20261111c"></script>
+    <link rel="stylesheet" href="css/style.css?v=20261111d">
+    <script src="js/theme.js?v=20261111d"></script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='30' fill='%230f172a'/%3E%3Cg fill='none' stroke='%2360a5fa' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 44 14 64 32 84M96 44 114 64 96 84'/%3E%3C/g%3E%3Cg fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M56 42V72Q56 86 44 86M72 42V86H84'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -109,9 +109,9 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web">
+                <div class="project-card" data-category="web" id="caso-microsite">
                     <div class="project-img">
-                        <img src="resources/microsite-badbunny.webp" alt="Captura del microsite de Bad Bunny" loading="lazy">
+                        <img src="resources/microsite-badbunny.webp" alt="Captura del microsite de Bad Bunny" loading="lazy" class="caso-miniatura">
                     </div>
                     <div class="project-body">
                         <div class="project-type-row">
@@ -126,6 +126,9 @@
                         <h3>Portfolio de un artista</h3>
                         <p>Práctica de Diseño de Interfaces Web. Primero hice el mockup en Figma y luego lo pasé a código, intentando que se viera igual que el diseño.</p>
                         <div class="project-links">
+                            <button type="button" class="btn-primary-sm abrir-caso" data-dialogo="dialogo-microsite">Ver caso de estudio</button>
+                        </div>
+                        <div class="project-links project-links-sec">
                             <a href="https://jaimelopera.github.io/microsite-badbunny/" target="_blank" rel="noopener noreferrer" class="btn-secondary-sm">Visitar ↗</a>
                             <a href="https://github.com/JaimeLopera/microsite-badbunny" target="_blank" rel="noopener noreferrer" class="btn-secondary-sm">Ver en Github ↗</a>
                         </div>
@@ -199,6 +202,67 @@
         </div>
     </dialog>
 
+    <dialog class="caso" id="dialogo-microsite" aria-labelledby="caso-titulo-microsite">
+        <div class="caso-contenido">
+            <button type="button" class="caso-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+
+            <div class="caso-portada">
+                <img src="resources/microsite-badbunny.webp" alt="Portada del microsite de Bad Bunny">
+            </div>
+
+            <div class="caso-cuerpo">
+                <span class="project-type tipo-clase">Trabajo de clase</span>
+                <h2 id="caso-titulo-microsite">Portfolio de un artista</h2>
+                <p class="caso-intro">Práctica de Diseño de Interfaces Web en 2º de DAW: un microsite en inglés de cinco secciones sobre un artista. Elegí a Bad Bunny.</p>
+
+                <div class="caso-columnas">
+                    <div>
+                        <h3>Qué pedían</h3>
+                        <ul>
+                            <li>Cinco secciones: Home, Biography, Albums, On Tour y Contact.</li>
+                            <li>Primero el mockup y después la web funcionando, responsive.</li>
+                            <li>Accesibilidad: contraste, navegación con teclado, textos alternativos, WCAG y heurísticas de Nielsen.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Las reglas</h3>
+                        <ul>
+                            <li><strong>Sin JavaScript:</strong> todo lo interactivo tenía que salir con HTML y CSS.</li>
+                            <li><strong>Sin grid:</strong> toda la maquetación con flexbox.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Cómo lo resolví</h3>
+                <ul class="caso-decisiones">
+                    <li>Diseñé todo el mockup en Figma antes de escribir código, empezando por la versión móvil.</li>
+                    <li>El slider de álbumes funciona con radios y el selector :has(), que deciden qué discos se ven y qué flechas aparecen.</li>
+                    <li>El calendario de conciertos usa radios y :checked: al elegir una fecha cambian la ciudad, los botones y el mapa de Google Maps.</li>
+                    <li>Las fuentes van alojadas en local con @font-face, para que la web funcione aunque no haya internet.</li>
+                    <li>En el formulario uso labels ocultos con una clase visually-hidden en lugar de aria-label.</li>
+                </ul>
+
+                <div class="caso-galeria caso-galeria-2">
+                    <figure>
+                        <img src="resources/microsite-calendario.webp" alt="Calendario de conciertos de noviembre con las fechas marcadas" loading="lazy" width="900" height="720">
+                        <figcaption>Calendario de conciertos, solo con CSS</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="resources/microsite-contacto.webp" alt="Formulario de contacto del microsite" loading="lazy" width="900" height="626">
+                        <figcaption>Formulario de contacto</figcaption>
+                    </figure>
+                </div>
+
+                <div class="caso-enlaces">
+                    <a href="https://jaimelopera.github.io/microsite-badbunny/" target="_blank" rel="noopener noreferrer" class="btn-primary">Visitar ↗</a>
+                    <a href="https://github.com/JaimeLopera/microsite-badbunny" target="_blank" rel="noopener noreferrer" class="btn-secondary">Ver en Github ↗</a>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
@@ -217,7 +281,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20261111c"></script>
-    <script src="js/idiomas.js?v=20261111c"></script>
+    <script src="js/main.js?v=20261111d"></script>
+    <script src="js/idiomas.js?v=20261111d"></script>
 </body>
 </html>

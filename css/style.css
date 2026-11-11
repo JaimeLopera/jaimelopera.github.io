@@ -2178,3 +2178,355 @@ html.caso-vt::view-transition-new(root) {
         translate: none;
     }
 }
+
+/* ==========================================================================
+   SOBRE MÍ (rediseño)
+   ========================================================================== */
+
+.sobre-hero {
+    padding: clamp(3rem, 8vw, 6rem) 0 2rem;
+}
+
+.sobre-hero-contenedor {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+}
+
+.sobre-hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: var(--heading);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s var(--ease-out) 0.05s backwards;
+}
+
+.sobre-hero .eyebrow {
+    animation: fadeUp 0.6s var(--ease-out) backwards;
+}
+
+.sobre-hero-lead {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--text-muted);
+    max-width: 34ch;
+    text-wrap: pretty;
+    animation: fadeUp 0.6s var(--ease-out) 0.12s backwards;
+}
+
+.sobre-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    animation: fadeUp 0.6s var(--ease-out) 0.2s backwards;
+}
+
+.sobre-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--heading);
+}
+
+.sobre-hero-foto {
+    justify-self: end;
+    width: min(100%, 380px);
+    animation: fadeUp 0.7s var(--ease-drawer) 0.15s backwards;
+}
+
+.sobre-hero-foto img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow: 0 30px 80px -24px rgba(15, 23, 42, 0.35);
+}
+
+/* --- Quién soy: título fijo y capítulos que se encienden --- */
+.capitulos {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.capitulos-fijo {
+    position: sticky;
+    top: 40vh;
+}
+
+.capitulos-fijo h2 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--heading);
+}
+
+.capitulos-puntos {
+    display: flex;
+    gap: 8px;
+    margin-top: 1.5rem;
+}
+
+.capitulos-puntos span {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--border);
+    transition: width 0.4s var(--ease-out), background-color 0.3s ease;
+}
+
+.capitulos-puntos span.activo {
+    width: 28px;
+    background: var(--primary);
+}
+
+.capitulo {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.25;
+    transition: opacity 0.5s ease;
+}
+
+.capitulo.activo {
+    opacity: 1;
+}
+
+.capitulo h3 {
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--heading);
+    margin-bottom: 0.8rem;
+}
+
+.capitulo p {
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 52ch;
+}
+
+/* --- Mosaico (Cómo trabajo / Con qué trabajo) --- */
+.mosaico {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.mosaico-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mosaico-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tesela {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    box-shadow: var(--shadow-sm);
+}
+
+.tesela h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    margin-bottom: 0.6rem;
+}
+
+.tesela p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.tesela-num {
+    display: block;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tesela-ancha {
+    grid-column: 1 / -1;
+}
+
+.tesela-oscura {
+    background: #0b1020;
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.tesela-oscura h3 {
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.palabras-grandes {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2em 0.6em;
+    margin-top: 1rem;
+    font-size: clamp(2.2rem, 6vw, 4.8rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+}
+
+.palabras-grandes li {
+    background: linear-gradient(90deg, #f8fafc, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.palabras-grandes li:nth-child(3n+1) {
+    background-image: linear-gradient(90deg, #60a5fa, #a78bfa);
+}
+
+.idioma-fila {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 0.5rem 0 0.75rem;
+}
+
+.idioma-nivel {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: var(--heading);
+}
+
+.idioma-nombre {
+    font-weight: 700;
+    color: var(--heading);
+    font-size: 1.15rem;
+}
+
+.idioma-fila-sec {
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 1.25rem;
+}
+
+.sobre-hero + .manifiesto {
+    padding-top: clamp(3rem, 9vw, 7rem);
+}
+
+@media (max-width: 868px) {
+    .sobre-hero-contenedor,
+    .capitulos {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-hero-foto {
+        justify-self: start;
+        width: min(70%, 300px);
+        order: -1;
+    }
+
+    .capitulos-fijo {
+        position: static;
+    }
+
+    .capitulos-puntos {
+        display: none;
+    }
+
+    .capitulo {
+        min-height: 0;
+        opacity: 1;
+        margin-top: 2.5rem;
+    }
+
+    .mosaico-3,
+    .mosaico-stack {
+        grid-template-columns: 1fr;
+    }
+}
+
+@supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+        .sobre-hero-foto img {
+            animation: foto-scroll linear both;
+            animation-timeline: scroll(root block);
+            animation-range: 0 90vh;
+        }
+    }
+}
+
+/* Caso de estudio del microsite */
+.caso-galeria-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.caso-enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.project-links-sec {
+    margin-top: 0.75rem;
+}
+
+.project-links .abrir-caso {
+    flex: 1;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .caso-galeria-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.palabras-medias {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15em 0.55em;
+    margin-top: 1.25rem;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--heading);
+}
+
+.palabras-medias li:nth-child(even) {
+    color: var(--text-muted);
+}
