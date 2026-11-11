@@ -17,8 +17,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Proyectos — Jaime Lopera</title>
     <link rel="preload" href="resources/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261111e">
-    <script src="js/theme.js?v=20261111e"></script>
+    <link rel="stylesheet" href="css/style.css?v=20261111f">
+    <script src="js/theme.js?v=20261111f"></script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='30' fill='%230f172a'/%3E%3Cg fill='none' stroke='%2360a5fa' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 44 14 64 32 84M96 44 114 64 96 84'/%3E%3C/g%3E%3Cg fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M56 42V72Q56 86 44 86M72 42V86H84'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -81,12 +81,17 @@
     <main class="page-content">
         <section class="page-header">
             <h1>Mis proyectos</h1>
-            <p>Trabajos de clase y proyectos propios. Estoy preparando nuevos proyectos.</p>
+            <p>Proyectos propios y de clase. En cada uno cuento qué problema resuelve y cómo lo hice.</p>
         </section>
 
         <section class="section-container">
+            <div class="filter-buttons" role="group" aria-label="Filtrar proyectos">
+                <button type="button" class="filter-btn active" data-filter="all">Todos</button>
+                <button type="button" class="filter-btn" data-filter="propio">Propios</button>
+                <button type="button" class="filter-btn" data-filter="clase">De clase</button>
+            </div>
             <div class="grid-3" id="projectsGrid">
-                <div class="project-card" data-category="web" id="caso-dashboard">
+                <div class="project-card" data-category="propio" id="caso-dashboard">
                     <div class="project-img">
                         <img src="resources/dashboard-inicio.webp" alt="Captura del dashboard personal" loading="lazy" class="caso-miniatura" width="1600" height="960">
                     </div>
@@ -109,7 +114,36 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web" id="caso-microsite">
+                <div class="project-card" data-category="propio" id="caso-devnotes">
+                    <div class="project-img notas-miniatura" aria-hidden="true">
+                        <div class="notas-arbol">
+                            <div class="notas-titulo">DevNotes</div>
+                            <div class="notas-fila"><span class="notas-nombre">HTML</span><span class="notas-barra" style="--ancho: 62%"></span><span class="notas-cuenta">13</span></div>
+                            <div class="notas-fila"><span class="notas-nombre">CSS</span><span class="notas-barra" style="--ancho: 81%"></span><span class="notas-cuenta">17</span></div>
+                            <div class="notas-fila"><span class="notas-nombre">JavaScript</span><span class="notas-barra" style="--ancho: 95%"></span><span class="notas-cuenta">20</span></div>
+                            <div class="notas-fila"><span class="notas-nombre">PHP</span><span class="notas-barra" style="--ancho: 100%"></span><span class="notas-cuenta">21</span></div>
+                            <div class="notas-fila"><span class="notas-nombre">Docker</span><span class="notas-barra" style="--ancho: 33%"></span><span class="notas-cuenta">7</span></div>
+                            <div class="notas-fila"><span class="notas-nombre">Conceptos</span><span class="notas-barra" style="--ancho: 38%"></span><span class="notas-cuenta">8</span></div>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-type-row">
+                            <span class="project-type tipo-propio">Proyecto propio</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Markdown</span>
+                            <span class="tag">Obsidian</span>
+                            <span class="tag">Git</span>
+                        </div>
+                        <h3>DevNotes</h3>
+                        <p>Mis apuntes de desarrollo web: 86 notas organizadas por lenguaje, escritas en Obsidian y publicadas en GitHub para tenerlas siempre a mano.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/JaimeLopera/DevNotes" target="_blank" rel="noopener noreferrer" class="btn-secondary-sm">Ver en Github ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="clase" id="caso-microsite">
                     <div class="project-img">
                         <img src="resources/microsite-badbunny.webp" alt="Captura del microsite de Bad Bunny" loading="lazy" class="caso-miniatura">
                     </div>
@@ -262,8 +296,18 @@
             </div>
         </div>
     </dialog>
-
     <footer class="footer">
+        <div class="footer-cta">
+            <div class="section-container footer-cta-contenedor">
+                <span class="eyebrow">¿Tienes un hueco en tu equipo?</span>
+                <p class="footer-cta-titulo">Hablemos.</p>
+                <a href="mailto:loperavelazquezjaime@gmail.com" class="footer-cta-correo">loperavelazquezjaime@gmail.com</a>
+                <div class="footer-cta-botones">
+                    <a href="contacto.html" class="btn-primary magnetico">Escríbeme</a>
+                    <a href="resources/CV_Jaime_Lopera_Velazquez.pdf" class="btn-secondary magnetico" download>Descargar CV</a>
+                </div>
+            </div>
+        </div>
         <div class="footer-container">
             <div class="footer-brand">
                 <h3>Jaime Lopera Velázquez</h3>
@@ -281,7 +325,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20261111e"></script>
-    <script src="js/idiomas.js?v=20261111e"></script>
+    <script src="js/main.js?v=20261111f"></script>
+    <script src="js/idiomas.js?v=20261111f"></script>
 </body>
 </html>

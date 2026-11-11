@@ -121,6 +121,7 @@ if (contactForm) {
         ".pill",
         ".about-card-box li",
         ".tesela",
+        ".proceso-paso",
         ".contact-card-item",
         ".cta-container"
     ].join(", ");
@@ -281,6 +282,24 @@ if (contactForm) {
         }, { rootMargin: "-45% 0px -45% 0px" });
 
         capitulos.forEach(c => observadorCapitulos.observe(c));
+    }
+
+    // 8c. La línea del proceso se dibuja al aparecer
+    const procesos = document.querySelectorAll(".proceso-lista");
+
+    if (procesos.length > 0 && "IntersectionObserver" in window) {
+        const observadorProceso = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add("dibujada");
+                    observadorProceso.unobserve(entrada.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        procesos.forEach(lista => observadorProceso.observe(lista));
+    } else {
+        procesos.forEach(lista => lista.classList.add("dibujada"));
     }
 
     // 9. Contadores que suben al aparecer
