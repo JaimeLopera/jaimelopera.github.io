@@ -3400,3 +3400,18 @@ a.proyecto-visual {
     font-size: clamp(1.1rem, 1.6vw, 1.3rem);
     line-height: 1.55;
 }
+
+/* Primera capa de información bajo el formulario de contacto */
+.form-aviso {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.legal-block ul {
+    margin: 0.5rem 0 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
