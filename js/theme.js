@@ -56,8 +56,14 @@
             var y = caja.top + caja.height / 2;
             var radio = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
 
+            raiz.classList.add("tema-vt");
+
             var transicion = document.startViewTransition(function () {
                 aplicar(nuevo);
+            });
+
+            transicion.finished.finally(function () {
+                raiz.classList.remove("tema-vt");
             });
 
             transicion.ready.then(function () {
