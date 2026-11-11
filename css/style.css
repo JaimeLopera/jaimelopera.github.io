@@ -2136,3 +2136,45 @@ html.caso-vt::view-transition-new(root) {
         }
     }
 }
+
+/* --- Títulos que se descubren (todas las páginas) --- */
+.js-titulos .titulo-revelar {
+    clip-path: inset(0 -0.2em 100% -0.2em);
+    translate: 0 0.35em;
+    transition: clip-path 0.8s var(--ease-drawer), translate 0.8s var(--ease-drawer);
+}
+
+.js-titulos .titulo-revelar.revelado {
+    clip-path: inset(-0.2em -0.2em -0.3em -0.2em);
+    translate: 0 0;
+}
+
+/* La cabecera de cada página se aleja al hacer scroll (lo mueve main.js) */
+.page-header {
+    overflow: hidden;
+}
+
+.page-header h1,
+.page-header p {
+    will-change: translate, opacity;
+}
+
+/* Formación dentro del timeline: misma tarjeta que la experiencia */
+.timeline-card.info-card {
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+}
+
+
+.page-header + .manifiesto {
+    padding-top: clamp(3rem, 9vw, 7rem);
+    padding-bottom: clamp(3rem, 9vw, 7rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js-titulos .titulo-revelar,
+    .js-titulos .titulo-revelar.revelado {
+        clip-path: none;
+        translate: none;
+    }
+}

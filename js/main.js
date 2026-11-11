@@ -118,6 +118,9 @@ if (contactForm) {
         ".contact-form-wrapper",
         ".legal-block",
         ".cifra",
+        ".pill",
+        ".about-card-box li",
+        ".contact-card-item",
         ".cta-container"
     ].join(", ");
 
@@ -128,7 +131,7 @@ if (contactForm) {
     elementosReveal.forEach(el => {
         const hermanos = Array.from(el.parentElement.children).filter(h => h.classList.contains("reveal"));
         const posicion = hermanos.indexOf(el);
-        el.style.setProperty("--delay", (Math.min(posicion, 4) * 0.06) + "s");
+        el.style.setProperty("--delay", (Math.min(posicion, 6) * 0.05) + "s");
     });
 
     if ("IntersectionObserver" in window) {
@@ -159,6 +162,8 @@ if (contactForm) {
     const textosLuz = reducirMovimiento ? [] : document.querySelectorAll(".texto-luz-relleno");
     const dispositivo = reducirMovimiento ? null : document.querySelector(".dispositivo");
     const timelines = document.querySelectorAll(".timeline");
+    const cabecera = reducirMovimiento ? null : document.querySelector(".page-header");
+    const piezasCabecera = cabecera ? cabecera.querySelectorAll("h1, p") : [];
 
     if (textosLuz.length > 0) raiz.classList.add("js-luz");
 
@@ -183,6 +188,15 @@ if (contactForm) {
             texto.style.backgroundSize = (progreso * 100) + "% 100%";
         });
 
+        if (cabecera) {
+            const progreso = limitar(window.scrollY / cabecera.offsetHeight, 0, 1);
+            piezasCabecera.forEach((pieza, i) => {
+                pieza.style.translate = "0 " + (progreso * (i === 0 ? 60 : 36)).toFixed(1) + "px";
+                pieza.style.scale = (1 - progreso * 0.06).toFixed(3);
+                pieza.style.opacity = (1 - progreso * 0.9).toFixed(3);
+            });
+        }
+
         if (dispositivo) {
             const caja = dispositivo.parentElement.parentElement.getBoundingClientRect();
             const progreso = limitar((alto - caja.top) / (alto * 0.7), 0, 1);
@@ -206,10 +220,32 @@ if (contactForm) {
         }
     };
 
-    if (textosLuz.length > 0 || dispositivo || lineasTimeline.length > 0) {
+    if (textosLuz.length > 0 || dispositivo || cabecera || lineasTimeline.length > 0) {
         window.addEventListener("scroll", pedirFrame, { passive: true });
         window.addEventListener("resize", pedirFrame);
         actualizarScroll();
+    }
+
+    // 7b. Títulos que se descubren de abajo arriba al aparecer
+    const titulos = reducirMovimiento ? [] : document.querySelectorAll(
+        ".section-title h2, .timeline-title, .about-text h2, .contact-info h2, .contact-form-wrapper h2, .sidebar-block h3, .about-card-box h3"
+    );
+
+    if (titulos.length > 0 && "IntersectionObserver" in window) {
+        raiz.classList.add("js-titulos");
+        titulos.forEach(titulo => titulo.classList.add("titulo-revelar"));
+
+        // Se observa el padre: el título recortado no cuenta como visible
+        titulos.forEach(titulo => {
+            const padre = titulo.parentElement;
+            const vigilar = new IntersectionObserver((entradas) => {
+                if (entradas[0].isIntersecting) {
+                    titulo.classList.add("revelado");
+                    vigilar.disconnect();
+                }
+            }, { rootMargin: "0px 0px -60px 0px" });
+            vigilar.observe(padre);
+        });
     }
 
     // 8. Historia fija: el paso que cruza el centro de la pantalla manda
@@ -264,7 +300,7 @@ if (contactForm) {
 
     // 10. Tarjetas con inclinación 3D y brillo que sigue al ratón
     if (conRaton && !reducirMovimiento) {
-        document.querySelectorAll(".feature-card, .project-card").forEach(tarjeta => {
+        document.querySelectorAll(".feature-card, .project-card, .info-card, .cert-card, .timeline-card, .about-card-box, .sidebar-block, .contact-card-item").forEach(tarjeta => {
             tarjeta.classList.add("inclinable");
 
             tarjeta.addEventListener("pointermove", (e) => {
@@ -289,7 +325,8 @@ if (contactForm) {
 
     // 11. Botones magnéticos: se acercan un poco al cursor
     if (conRaton && !reducirMovimiento) {
-        document.querySelectorAll(".magnetico").forEach(boton => {
+        document.querySelectorAll(".magnetico, main .btn-primary:not(.btn-full), main .btn-secondary").forEach(boton => {
+            boton.classList.add("magnetico");
             boton.addEventListener("pointermove", (e) => {
                 const caja = boton.getBoundingClientRect();
                 const x = limitar((e.clientX - caja.left - caja.width / 2) * 0.3, -10, 10);
