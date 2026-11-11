@@ -2022,6 +2022,12 @@ html.tema-vt::view-transition-new(root) {
     border: 1px solid var(--border);
 }
 
+/* El móvil ocupa la tercera columna a lo alto de dos filas de capturas */
+.caso-galeria-movil {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+}
+
 .caso-galeria figcaption {
     font-size: 0.85rem;
     color: var(--text-muted);
@@ -2040,6 +2046,8 @@ html.tema-vt::view-transition-new(root) {
     }
 
     .caso-galeria-movil {
+        grid-column: auto;
+        grid-row: auto;
         width: 55%;
     }
 }
