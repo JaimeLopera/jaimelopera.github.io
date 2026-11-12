@@ -112,9 +112,9 @@
                 <div class="proyecto-texto">
                     <span class="project-type tipo-propio">Proyecto propio</span>
                     <h2>Dashboard personal</h2>
-                    <p class="proyecto-resumen">Web app privada para mis finanzas, mi plan de estudio semanal y mi correo. Sin frameworks, con Supabase y un modelo de IA de Groq por detrás.</p>
+                    <p class="proyecto-resumen">Web app privada para mis finanzas, mi plan de estudio semanal y mi correo. Sin frameworks, con Supabase y Gemini de Google como IA por detrás.</p>
                     <dl class="proyecto-datos">
-                        <div><dt>Tecnologías</dt><dd>JavaScript, Supabase, PostgreSQL, Groq y Vercel</dd></div>
+                        <div><dt>Tecnologías</dt><dd>JavaScript, Supabase, PostgreSQL, Gemini y Vercel</dd></div>
                         <div><dt>Estado</dt><dd>Publicado y en uso cada día</dd></div>
                     </dl>
                     <div class="project-links">
@@ -204,7 +204,7 @@
                         <ul>
                             <li><strong>Frontend:</strong> HTML, CSS y JavaScript sin frameworks, desplegado en Vercel desde GitHub.</li>
                             <li><strong>Backend:</strong> Supabase, con login por correo, PostgreSQL con RLS y Edge Functions en Deno.</li>
-                            <li><strong>IA:</strong> un modelo Qwen en Groq, al que solo se llama desde las Edge Functions.</li>
+                            <li><strong>IA:</strong> Gemini Flash-Lite de Google (con un modelo de Groq de respaldo), al que solo se llama desde las Edge Functions.</li>
                             <li><strong>Correo:</strong> un Google Apps Script lee Gmail y lo expone como una API protegida con clave.</li>
                         </ul>
                     </div>
@@ -212,7 +212,7 @@
 
                 <h3>Decisiones que tomé</h3>
                 <ul class="caso-decisiones">
-                    <li>Las claves de Groq y de Gmail se guardan como secretos en Supabase y nunca llegan al navegador.</li>
+                    <li>Las claves de la IA y de Gmail se guardan como secretos en Supabase y nunca llegan al navegador.</li>
                     <li>El plan se genera en dos pasos, primero la estrategia y luego cada día, para no pasarse del límite de tokens.</li>
                     <li>Lo que ya ha pasado no se reescribe: el JavaScript descarta los bloques de la IA que pisan horas pasadas.</li>
                     <li>Cada página tiene su propia hoja de estilos, colgada de la clase del body, para que no se pisen entre ellas.</li>
