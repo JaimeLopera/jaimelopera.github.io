@@ -165,6 +165,7 @@ const traducciones = {
     "De clase": "Class",
     "Mis apuntes de desarrollo web: 209 notas organizadas por lenguaje, escritas en Obsidian y publicadas en GitHub para tenerlas siempre a mano.": "My web development notes: 209 notes organised by language, written in Obsidian and published on GitHub so they're always at hand.",
     "Conceptos": "Concepts",
+    "+10 bloques más · 209 notas": "+10 more sections · 209 notes",
     "¿Tienes un hueco en tu equipo?": "Got a spot on your team?",
     "Hablemos.": "Let's talk.",
     "Estudiante de DAW": "DAW student",
